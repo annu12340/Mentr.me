@@ -1,0 +1,308 @@
+{% extends "layout.html"%}
+{% block content%}
+
+<style>
+:root {
+  --color-black: #343434;
+  --color-white: #fff;
+  --color-blue-dark: #1d355d;
+  --color-pink: #ff5161;
+  --color-yelow: #ffda62;
+  --font-sans-serif: "Source Sans Pro", sans-serif;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  color: var(--color-black);
+  background-color: var(--color-yelow);
+  font-family: var(--font-sans-serif);
+  font-size: 1.8rem;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+h2 {
+  color: var(--color-blue-dark);
+  font-size: 2.8rem;
+  font-weight: 600;
+  margin: 0 0 1rem;
+}
+
+strong {
+  font-weight: 600;
+}
+
+/* Quiz
+-------------------------*/
+.quiz-container {
+  background: var(--color-white);
+  padding: 2rem 2rem;
+  margin: 1rem auto;
+  max-width: 48rem;
+  border-radius: 4px;
+}
+
+.quiz-form {
+  margin: 1rem 0;
+}
+
+.quiz-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.quiz-question {
+  margin-bottom: 3.2rem;
+  padding-bottom: 3.2rem;
+  border-bottom: 1px solid #eee;
+}
+
+
+.quiz-question p {
+  font-weight: 600;
+  margin-bottom: 1.2rem;
+}
+
+.quiz-results {
+  display: none;
+  font-size: 1.8rem;
+}
+
+/* Form
+-------------------------*/
+.form-check {
+  margin-bottom: 0.6rem;
+}
+
+.form-check label {
+  margin-left: 1rem;
+}
+
+button {
+  background: var(--color-blue-dark);
+  color: var(--color-white);
+  cursor: pointer;
+  font-family: var(--font-sans-serif);
+  font-size: 1.6rem;
+  padding: 1.2rem 2rem;
+  border: none;
+  border-radius: 4px;
+}
+
+input[type="radio"] {
+  cursor: pointer;
+}
+
+/* Accessibility
+-------------------------*/
+.visually-hidden {
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap;
+}
+
+
+
+
+</style>
+
+<main class="container" style="width:850px; ">
+
+    <br>
+
+    <section class="quiz-container">
+
+        <br>
+        <header class="quiz-header">
+
+            <div class="quiz-results">
+                <p><strong>Score:</strong> <span class="quiz-score"></span></p>
+            </div>
+        </header>
+
+        <!-- Quiz form -->
+        <form class="quiz-form" autocomplete="off " method="post" action="verifiedskills">
+            <!-- Question 1 -->
+            <div class="quiz-question" role="radiogroup">
+                <p> Which of the following is not Javascript frameworks or libraries?</p>
+                <div class="form-check">
+                    <input type="radio" id="q1a" name="q1" value="A">
+                    <label for="q1a">Polymer</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" id="q1b" name="q1" value="B">
+                    <label for="q1b">Meteor</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" id="q1c" name="q1" value="C">
+                    <label for="q1c">Cassandra</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" id="q1d" name="q1" value="D">
+                    <label for="q1d">jQuery</label>
+                </div>
+            </div>
+            <!-- end question -->
+
+            <!-- Question3 -->
+            <div class="quiz-question" role="radiogroup">
+                <p>Which of the following can't be done with client-side JavaScript?</p>
+                <div class="form-check">
+                    <input type="radio" id="q3a" name="q3" value="A">
+                    <label for="q2a">Validating a form</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" id="q3b" name="q3" value="B">
+                    <label for="q2b">Sending a form's contents by email</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" id="q3c" name="q3" value="C">
+                    <label for="q3c">Storing data to a database on the server</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" id="q3d" name="q3" value="D">
+                    <label for="q2d"> None of the above</label>
+                </div>
+            </div>
+            <!-- end question -->
+
+
+            <!-- Question 5-->
+            <div class="quiz-question" role="radiogroup">
+                <p>In which part of memory does the system stores the parameter and local variables of funtion call?</p>
+                <div class="form-check">
+                    <input type="radio" id="q5a" name="q5" value="A">
+                    <label for="q5a">Heap</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" id="q5b" name="q5" value="B">
+                    <label for="q5b">Stack</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" id="q5c" name="q5" value="C">
+                    <label for="q5c"> Uninitialized data segment</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" id="q5d" name="q5" value="D">
+                    <label for="q5d">Queue</label>
+                </div>
+            </div>
+            <!-- end question -->
+
+            <!-- Question4 -->
+            <div class="quiz-question" role="radiogroup">
+                <p>In JavaScript, Arrays are data type. State True or False</p>
+                <div class="form-check">
+                    <input type="radio" id="q4a" name="q4" value="A">
+                    <label for="q4a">True</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" id="q4b" name="q4" value="B">
+                    <label for="q4b">False</label>
+                </div>
+
+            </div>
+            <!-- end question -->
+
+            <!-- Question 6 -->
+            <div class="quiz-question" role="radiogroup">
+                <p>What happens if you use parseInt() to convert a string containing decimal value?</p>
+                <div class="form-check">
+                    <input type="radio" id="q6a" name="q6" value="A">
+                    <label for="q6a">Throws Error</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" id="q6b" name="q6" value="B">
+                    <label for="q6b">It returns the decimal values in string form</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" id="q6c" name="q6" value="C">
+                    <label for="q6c">If returns the integer portion of the number</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" id="q6d" name="q6" value="D">
+                    <label for="q6d">None of the listed option</label>
+                </div>
+            </div>
+            <!-- end question -->
+            <!-- Question2 -->
+            <div class="quiz-question" role="radiogroup">
+                <p>When a user views a page containing a JavaScript program, which machine actually executes the
+                    script</p>
+                <div class="form-check">
+                    <input type="radio" id="q2b" name="q2" value="B">
+                    <label for="q2b">The Web server</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" id="q2a" name="q2" value="A">
+                    <label for="q2a">The User's machine running a Web browser</label>
+                </div>
+
+                <div class="form-check">
+                    <input type="radio" id="q2c" name="q2" value="C">
+                    <label for="q2c">A central machine within Netscape's offices</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" id="q2d" name="q2" value="D">
+                    <label for="q2d">None of the above</label>
+                </div>
+            </div>
+            <!-- end question -->
+
+            <button type="submit">Show results</button>
+        </form>
+
+        <!-- end quiz -->
+    </section>
+</main>
+
+
+<script>
+
+const form = document.querySelector('.quiz-form')
+const results = document.querySelector('.quiz-score')
+var score=0
+form.addEventListener('submit', e => {
+    e.preventDefault()
+    let score = 0
+    let userAnswers = []
+
+    // get user answers
+    document.querySelectorAll('input[type=radio]').forEach(input => {
+        if(input.hasAttribute('name') && input.checked) {
+            userAnswers.push(input.value)
+            input.checked = false
+        }
+    })
+
+
+);
+
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+{% endblock%}
+ 

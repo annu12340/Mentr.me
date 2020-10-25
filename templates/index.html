@@ -1,0 +1,125 @@
+{% extends "layout.html"%}
+{% block content%}
+
+
+<body style="margin:0;padding:0;">
+<div class="row">
+
+    <div class="col-3" style="margin-right:3%">
+        <table class="table table-hover"
+               style="box-shadow: 0 8px 16px rgba(0, 0, 0, .1); background:#fcfcfc;; border-radius:3%;font-size:18px">
+            <thead>
+            <tr>
+                <th scope="col">Rank</th>
+                <th scope="col">Name</th>
+                <th scope="col">Score</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                {% for i in rank_user %}
+
+                {%if i.score > 0%}
+                <th scope="row">{{ loop.index }}</th>
+
+                <td>{{i.username}}</td>
+                <td>{{i.score}}</td>
+            </tr>
+            {% endif %}
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="col-5" style="margin-right:3%">
+
+
+        <div class="homeDiv">
+            {% for i in showQuestion %}
+            <div class="row"
+                 style="box-shadow: 0 8px 16px rgba(0, 0, 0, .1); background:#fff; padding:2%; border-radius:1%">
+                <div class="col-12">
+                    <div class="media m-1">
+                        <div class="d-flex mr-3">
+                            <a href="/profile"><img class="img rounded-circle"
+                                                    src="{{i.askedby_img}}"
+                                                    alt="User" width="68" height="68"></a>
+                        </div>
+                        <div class="media-body">
+                            <p style="margin:7px 0;font-size:15px">{{i.askedby_name}}
+                                <span class="badge--md badge-light badge-pill" style="float:right">
+                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-lightning-fill" fill="orange"
+                             xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd"
+                  d="M11.251.068a.5.5 0 0 1 .227.58L9.677 6.5H13a.5.5 0 0 1 .364.843l-8 8.5a.5.5 0 0 1-.842-.49L6.323 9.5H3a.5.5 0 0 1-.364-.843l8-8.5a.5.5 0 0 1 .615-.09z"/>
+                </svg>{{i.pay}}</span>
+                            </p>
+
+                            <hr>
+
+
+                        </div>
+
+
+                    </div>
+
+                    <b style=" font-size:19px" class="text-color">{{ i.question }}</b>
+                    <br>
+                    <span style="color:#495057;font-size:16px"> {{i.shortdescription }}</span>
+                    <br><br>
+
+                    <span class="badge badge-pill" style="background-color:#e9ecef;font-size:11px">{{i.tags}}</span>
+
+
+                    <button type="submit" class="btn btn-dark " value="{{ i.id }}"
+                            style="color:white !important;float:right">
+                        <a href="{{ url_for('ParticularQuestion', questionid=i.id, user=False) }}" style="color:white">
+                            View </a>
+                    </button>
+                    <br><br>
+                </div>
+
+
+            </div>
+            <br>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="col-3 "
+         style="margin-left:1%;box-shadow: 0 8px 16px rgba(0, 0, 0, .1); background:#fcfcfc; padding:2%; border-radius:1%">
+        <div>
+
+            <h4>Upcoming meetings</h4><br>
+            <img class="d-block img-fluid" src="/static/calender.gif" width="200">
+            {% if interview %}
+            <ul>
+                {% for i in interview %}
+
+
+                {% if i.date == today %}
+                <li><b>Today, meeting with {{i.recruitername}} on at {{i.time}}</b></li>
+                <button type="submit" class="btn  btn-light">
+                    <a href="https://us04web.zoom.us/j/74710727644?pwd=SEZQTzJqOExCcnFiN1ZtVlhDZWhYZz09"
+                    >Join <br> Meeting</a></button>
+                <br><br><br><br>
+                {% elif i.date > today %}
+
+                <li> Meet with {{i.recruitername}} on {{i.date}} at {{i.time}}</li>
+
+                {% endif %}
+                {% endfor %}
+            </ul>
+
+            {% endif%}
+        </div>
+
+    </div>
+
+
+</div>
+
+
+</body>
+
+
+{% endblock%}

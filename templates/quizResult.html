@@ -1,0 +1,106 @@
+{% extends "layout.html"%}
+{% block content%}
+
+
+<body onload="result({{points}})">
+
+
+<div style="box-shadow: 0 8px 16px rgba(0, 0, 0, .1); background:#fff; ">
+
+    <div style="padding-left:15%">
+
+        <br>
+        <h1>Assessment details</h1>
+        <div class="row">
+            <div class="col-5"> You have got <span class="result"></span> of the answer correct.
+                <br>
+
+
+                <div class="feedback"></div>
+                <br>
+                Proficiency level : <span style="color:green; font-weight:bolder">Intermediate</span><br>
+                You did better than 73% of your peers.
+
+            </div>
+            <div class="col-4">
+                <h5>Congrats you won a scratch card</h5>
+                <button class="btn btn-light"><a href="/scratchcard">Try your luck</a></button>
+            </div>
+        </div>
+    </div>
+
+    <div class="chart">
+        <canvas id="myChart" width="300" height="150"></canvas>
+    </div>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.js"></script>
+
+<script>
+
+function result(points) {
+
+     const results = document.querySelector('.result')
+     const feedback = document.querySelector('.feedback')
+
+     //Animate score
+    let output = 0;
+    const timer = setInterval(() => {
+        results.textContent = `${output}/100`
+        if(output === points) {
+            clearInterval(timer)
+        } else {
+            output++
+        }
+    }, 10)
+
+    if (points>=75){s='Well done ! You have aced the test'}
+    if (points<75){s='Great start! But you certainly can do better'}
+
+    feedback.textContent=s
+
+var ctx = document.getElementById('myChart').getContext('2d');
+
+var chart = new Chart(ctx, {
+
+	type: 'line',
+
+
+	data: {
+		labels: ["Novice","beginner","intermediate","your score","expert"],
+
+    datasets: [{
+			backgroundColor: 'lightblue',
+			borderColor: 'royalblue',
+			data: [0,20,60, points,100],
+		}]
+	},
+
+	// Configuration options
+	options: {
+    layout: {
+      padding: 100,
+    },
+
+
+	}
+});
+
+
+
+}
+
+
+
+
+
+
+
+
+</script>
+
+</body>
+
+{% endblock%}
+ 

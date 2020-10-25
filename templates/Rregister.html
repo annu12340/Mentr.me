@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/static/layout.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <a class="navbar-brand" href="/home">Recruiter</a>
+    <ul class="nav navbar-nav  ">
+        <li class="nav-item">
+            <a class="nav-link" href="/Rlogin">Login</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/Rregister">Register</a>
+        </li>
+
+    </ul>
+
+</nav>
+
+<div class="container">
+     <br> <br>
+    <h2> Register </h2>
+
+
+    <div class="row">
+
+        <div class="col-5 ml-4">
+            <br>
+            <form action="" method="post">
+
+                <div class="form-group">
+                    <label>Name </label>
+                    <input type="text" name="username" class="form-control" placeholder="Enter name">
+
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input type="password" name="password" class="form-control" id="exampleInputPassword1"
+                           placeholder="Password">
+                </div>
+                <div class="form-group">
+                    <label>Company</label>
+                    <input type="text" name="company" class="form-control"
+                           placeholder="Company name">
+                </div>
+   <div class="form-group">
+                    <label>Profile photo</label>
+                    <input type="text" name="image" class="form-control"
+                           placeholder="Add profile photo">
+                </div>
+
+                <div class="form-group">
+                    <label>Credentials</label>
+                    <input type="text" name="credentials" class="form-control"
+                           placeholder="Add Credentials">
+                </div>
+
+                <div class="form-group">
+                    <label>The roles that you are looking for</label>
+                    <input type="text" name="roles" class="form-control"
+                           placeholder="Add the roles ">
+                </div>
+
+                <button type="submit" class="btn btn-dark">Submit</button>
+                <br><br><br>
+            </form>
+
+        </div>
+        <div class="col-3">
+            <img src="https://image.freepik.com/free-vector/job-interview-recruitment-agency-isometric-hiring-recruitment-concept_126283-818.jpg"
+                 alt=""></div>
+    </div>
+</div>
+
+
+</body>
+
+</html>

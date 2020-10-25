@@ -1,0 +1,127 @@
+{% extends "layout.html"%}
+{% block content%}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col-7"
+             style="box-shadow: 0 8px 16px rgba(0, 0, 0, .1); background:#fff; padding:2%; border-radius:1%">
+            <div class="row">
+
+                <div class="col-12">
+                    <h1 class="text-color text-center">My Questions</h1>
+
+                    <video controls autoplay="autoplay" loop width="300"
+                           style="float:right; padding-right:0 !important">
+
+                        <source src="https://global-uploads.webflow.com/5bcb46130508ef456a7b2930/5d06154c6a9360b7a49538b6_drawkit-grape-pack-illustration-8-transcode.mp4">
+
+                    </video>
+
+                    {% for i in myQuestion %}
+                    <div class="row">
+                        <div class="col-12">
+                            <br>
+                            <h5>{{ loop.index }}.
+                                <a href="{{ url_for('ParticularQuestion', questionid=i.id, user=True) }}"
+                                   style="color:black !important"> {{ i.question }} </a>
+                            </h5>
+
+                            <small class="text-muted">{{i.shortdescription }}</small> <br><br>
+                            <div class="row">
+
+                                <div class="col-2">
+                                <span class="badge--sm badge-light badge-pill">
+                        <svg width="0.6em" height="0.6em" viewBox="0 0 16 16" class="bi bi-lightning-fill" fill="orange"
+                             xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd"
+                  d="M11.251.068a.5.5 0 0 1 .227.58L9.677 6.5H13a.5.5 0 0 1 .364.843l-8 8.5a.5.5 0 0 1-.842-.49L6.323 9.5H3a.5.5 0 0 1-.364-.843l8-8.5a.5.5 0 0 1 .615-.09z"/>
+                </svg><small>{{i.pay}}</small></span><br>
+
+                                </div>
+                                <div class="col-2">
+
+
+                                    <span style="font-size:15px">{{i.status}}</span>
+                                    {%if i.status=='Pending'%}
+                                    <div class="progress progress-xs margin-vertical-1"
+                                         style="height:0.4em; width:150px">
+                                        <div class="progress-bar bg-danger" style="width: 10%;"></div>
+                                    </div>
+                                    {% elif i.status=='Assigned' %}
+                                    <div class="progress progress-xs margin-vertical-1"
+                                         style="height:0.5em; width:150px">
+                                        <div class="progress-bar bg-primary" style="width: 50%;"></div>
+                                    </div>
+                                    {% elif i.status=='Solved' %}
+                                    <div class="progress progress-xs margin-vertical-1"
+                                         style="height:0.5em; width:150px">
+                                        <div class="progress-bar bg-success" style="width: 100%;"></div>
+                                    </div>
+                                    {% endif %}
+                                </div>
+                                &nbsp; &nbsp; &nbsp;
+
+                                <div class="col-7">
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <button type="submit" class="btn btn-dark btn-sm" value="{{ i.id }}">
+                                        <a href="{{ url_for('DoubtSolved', id=i.id) }}" style="color:white !important">
+                                            <i
+                                                    class="fas fa-check-circle fa-sm"></i>
+                                            <small>Issue solved </small></a>
+                                    </button>
+                                    <button type="submit" class="btn btn-danger btn-sm" value="{{ i.id }}">
+                                        <a href="{{ url_for('Delete', id=i.id) }}" style="color:white !important"><i
+                                                class="fas fa-trash-alt"></i></a>
+                                    </button>
+                                </div>
+
+                            </div>
+
+
+                            <br>
+                            <hr>
+                        </div>
+
+
+                    </div>
+                    <br>
+
+                    {% endfor %}
+
+
+                </div>
+
+            </div>
+        </div>
+
+        <div class="col-4 " style="padding-left:6%; ">
+            <br><br>
+            <h5>My Commitments
+                <p class="text-muted"><small>Problems that I have promised to solve</small></p>
+            </h5>
+
+            <div>
+
+                <ol>
+
+                    <br>
+
+
+                    <li style="font-size:18px">Build an intelligent agent that sorts a music collection based on the emotions </li>
+
+                    <button class="btn-sm float-right">view</button>
+                    <br>
+                    <hr>
+                    <br>
+
+                </ol>
+
+
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock%}
+ 

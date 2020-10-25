@@ -1,0 +1,45 @@
+{% extends "layout.html"%} {% block content%}
+<body style="background:white !important; padding:0;margin:0">
+
+
+
+<div style=" box-shadow: 0 8px 16px rgba(0, 0, 0, .1); background:#fff; padding:2%; border-radius:1%;width:80%; margin-left:8%">
+    <h5><strong>Hurray, task done! Payment time..</strong></h5>
+    <b style="font-size:30px" class="text-color">
+        <img src="https://video-public.canva.com/VADsKvy_1SY/v/b214de6674.gif" alt="" style="float:right" width="250">
+        <br > {{q.question}}
+    </b><br>
+    {{q.detaileddescription}} <br>
+
+    <br>
+    <hr>
+ <span style="font-size:16px" class="text-muted">Since your doubt is solved, please make the payment to the respective person</span>
+    <br>
+   Promised amount <span class="badge--md badge-light badge-pill">
+                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-lightning-fill" fill="orange"
+                             xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd"
+                  d="M11.251.068a.5.5 0 0 1 .227.58L9.677 6.5H13a.5.5 0 0 1 .364.843l-8 8.5a.5.5 0 0 1-.842-.49L6.323 9.5H3a.5.5 0 0 1-.364-.843l8-8.5a.5.5 0 0 1 .615-.09z"/>
+                </svg>{{q.pay}}</span>
+    <br>
+    <form action="/payment">
+
+          <br><br><br>
+        <div class="form-group">
+
+            Enter username <input type="text" name="doubt" class="form-control" placeholder="username of the mentor"
+                                  width="10">
+            <br>Enter amount <input type="number" name="amount" class="form-control" placeholder="Amount">
+
+        </div>
+
+        <button type="submit" class="btn btn-dark text-center">Submit</button>
+
+    </form>
+    <br>
+</div>
+
+</body>
+
+
+{% endblock%}

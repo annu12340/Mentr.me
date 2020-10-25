@@ -1,0 +1,98 @@
+{% extends "layout.html"%} {% block content%}
+<body>
+<div style=" width:80%; margin-left:8%;box-shadow: 0 8px 16px rgba(0, 0, 0, .1); background:#fff; padding:2%; border-radius:1%">
+    <div class="row">
+        <div class="col-2"><img src="{{img}}" alt="" style="border-radius:60%;margin-left:5%" width="100"
+                                style="height:100px">
+        </div>
+        <div class="col-8" style="font-size:15px">
+            {{username}}<br>
+
+
+            <h4>{{question.question}}</h4>
+            <div class="text-muted" style="font-size:15px">{{question.shortdescription}}</div>
+            <br>
+            {{question.detaileddescription}}<br>
+            <br>
+            <span class="badge--md badge-light badge-pill">
+                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-lightning-fill" fill="orange"
+                     xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd"
+        d="M11.251.068a.5.5 0 0 1 .227.58L9.677 6.5H13a.5.5 0 0 1 .364.843l-8 8.5a.5.5 0 0 1-.842-.49L6.323 9.5H3a.5.5 0 0 1-.364-.843l8-8.5a.5.5 0 0 1 .615-.09z"/>
+</svg>{{question.pay}}</span>
+
+            <hr>
+        </div>
+
+    </div>
+</div>
+<br>
+
+
+<div style=" width:80%; margin-left:8%;box-shadow: 0 8px 16px rgba(0, 0, 0, .1); background:#fff; padding:2%; border-radius:1%">
+    <h5 class="text-muted">Three people have bid for this issue</h5>
+    <br>
+    <ul>
+
+        <img src="https://video-public.canva.com/VADsKmXIw_o/v/ed8396b30d.gif" alt="" width="300" style="float:right; ">
+        {% for i in response %}
+
+        <div class="media mb-4" style="color:#495057">
+            <img class="d-flex mr-3 rounded-circle" src="{{i.image}}" alt="" width="80" height="80">
+            <div class="media-body">
+                <div class="ml-7">
+                    <h5 style="color:black"><strong> {{i.username}}</strong></h5>
+                    <div style="font-size:15px"> {{ i.description }}</div>
+                    <br><br>Suggested amount : <span class="badge--md badge-light badge-pill"><svg
+                        width="1em" height="1em"
+                        viewBox="0 0 16 16"
+                        class="bi bi-lightning-fill"
+                        fill="orange"
+                        xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd"
+        d="M11.251.068a.5.5 0 0 1 .227.58L9.677 6.5H13a.5.5 0 0 1 .364.843l-8 8.5a.5.5 0 0 1-.842-.49L6.323 9.5H3a.5.5 0 0 1-.364-.843l8-8.5a.5.5 0 0 1 .615-.09z"/>
+</svg>{{i.pay}}</span>
+
+                    {% if isSamePerson == 'True' %}
+                    <span style="color:white">Lorem ips</span>
+                    <button type="submit" class="btn btn-danger btn-sm" value="{{ i.id }}">
+                        <a href="{{ url_for('assign', qid=question.id, userid=i.id, questionName=question.question, assignedName=i.username) }}"
+                           style="color:white;">Assign</a>
+                    </button>
+                    {% endif %}
+                    <hr>
+                </div>
+            </div>
+
+        </div>
+
+
+        {% endfor %}
+        </li>
+
+    </ul>
+
+
+    <br><br> <br><br>
+    {% if isSamePerson == 'False' %}
+
+    <div class="card my-4">
+        <h5 class="card-header">Leave a Comment:</h5>
+        <div class="card-body">
+            <form method="post">
+                <div class="form-group">
+                <textarea placeholder="Tell them why you are a good fit." class="form-control" rows="3"
+                          name="description"></textarea><br>
+                    <textarea placeholder="Expected amount" class="form-control" rows="1" name="pay"></textarea>
+                </div>
+                <button type="submit" class="btn btn-dark">Submit</button>
+            </form>
+
+        </div>
+    </div>
+
+    {% endif %}
+</div>
+</body>
+
+{% endblock%}

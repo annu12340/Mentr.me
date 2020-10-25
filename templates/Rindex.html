@@ -1,0 +1,102 @@
+{% extends "Rlayout.html"%}
+{% block content%}
+
+
+<div class="card promoting-card" style="width:90%;margin-left:5%;height:380px">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-1" >
+                <video  autoplay="autoplay" loop width="350px" >
+                    <source src="https://global-uploads.webflow.com/5bcb46130508ef456a7b2930/5d05f9736a93605e6d950a1e_drawkit-grape-pack-illustration-4-transcode.mp4">
+                </video>
+            </div>
+
+            <div class="col-11" style="padding-left:35%; ">
+                <h2 class="card-title font-weight-bold mb-2" style=" text-shadow: 1px 1px 3px #dee2e6;">Today's
+                    meeting</h2>
+                <p class="card-text"><i class="far fa-clock pr-2"></i>
+                    {{today}}
+                </p>
+                <hr>
+                <div class="row">
+                    {% if interview %}
+                    {% for i in interview %}
+                    {% if i.date == today %}
+                    <div class="col-4"
+                         style="background:#f5f9fc;height:10%; padding:2%;margin-right:3%;box-shadow: 3px 3px 8px #dee2e6; ">
+                        Meeting with <b>{{i.username}}</b> at {{i.time}} <br><br>
+
+                        <div class="row">
+
+
+                            <button type="submit" class="btn  btn-light text-center">
+                                <a href="https://us04web.zoom.us/j/74710727644?pwd=SEZQTzJqOExCcnFiN1ZtVlhDZWhYZz09"
+                                >Join <br> Meeting</a></button>
+
+                        </div>
+
+
+                    </div>
+
+
+                    {% endif %}
+
+                    {% endfor %}
+                </div>
+                {% else %}
+                <h3>No meetings for today</h3>
+                {% endif %}
+            </div>
+
+        </div>
+        <hr>
+
+    </div>
+</div>
+
+</div>
+<!-- Card -->
+
+
+<br>
+<h2>&nbsp;&nbsp;&nbsp;&nbsp;Upcoming Meetings</h2>
+
+
+<div class="row" style="font-size:19px;margin:2%">
+    <div class="col-12">
+        <table class="table table-striped table-hover">
+            <thead>
+            <th scope="col">No</th>
+            <th scope="col">Name</th>
+            <th scope="col">Date</th>
+            <th scope="col">Time</th>
+            <th scope="col">Status</th>
+            </thead>
+            <tbody>
+            <tr>
+                {% for i in interview %}
+
+                <th scope="row">{{ loop.index }}</th>
+                <td> {{i.username}}</td>
+                <td>{{i.date}}</td>
+                <td>{{i.time}}</td>
+                <td>{{i.status}}</td>
+
+            </tr>
+            {% endfor %}
+
+            <tr>
+
+            </tr>
+
+            </tbody>
+        </table>
+
+    </div>
+
+</div>
+<br>
+
+
+{% endblock%}
+ 

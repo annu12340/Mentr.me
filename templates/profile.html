@@ -1,0 +1,173 @@
+{% extends "layout.html"%} {% block content%}
+
+
+<div class="row">
+    <div class="col-8 mx-auto">
+
+        <!-- Profile widget -->
+
+        <div class=" shadow rounded overflow-hidden">
+            <div class="px-4 pt-0 bg-dark ">
+                <div class="media align-items-end profile-header">
+                    <img class=" rounded-circle" src="{{i.image}}" style="width:200px; height:200px">
+                    <div class="media-body text-white" style="transform:translateY(-30%)">
+
+                        <h1 class=" ml-10" style="text-shadow: 2px 1px 1px #7d7d7d;"> {{ i.username }}</h1>
+                       &nbsp;&nbsp; <p class="small mb-4"> Working/Studying at IITB</p>
+<!--                        <p class="small mb-4"> Working/Studying at {{i.institute}}</p>-->
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-light p-4 d-flex justify-content-end text-center"
+                 style="background:#F0F2F5  !important;height:80px">
+
+
+                <div class="col-md-4 text-center">
+
+                    <a href="{{i. github}}" target="_blank" class="btn-social btn-github"><i
+                            class="fa fa-github"></i></a>
+                    <a href="{{i.linkedin}}" target="_blank" class="btn-social btn-linkedin"><i
+                            class="fa fa-linkedin"></i></a>
+                </div>
+
+                <ul class="list-inline mb-0">
+
+                    <li class="list-inline-item">
+                        <br>
+                        <h5 class="font-weight-bold mb-0 d-block">5{{i.score}}</h5><small class="text-muted">
+                        Score</small>
+
+                    </li>
+                </ul>
+            </div>
+            <br>
+            <div class="row" style="background:white">
+                <div class="py-4 px-4">
+                    <div class="d-flex align-items-center justify-content-between mb-3">
+                        <h3 class="mb-0">About</h3>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 mb-2" style="padding:2%">
+<!--                            {{i.about}}-->
+                            Second year MS Student in Human Computer Interaction. Actively looking for Winter Internships.
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="py-4 px-4">
+
+                    <div class="row">
+
+                        <div class="col-lg-5 mb-2 pr-lg-1" style="padding:2%; margin-left:2%">
+                            <div class="d-flex align-items-center justify-content-between mb-3">
+                                <h5 class="mb-0 text-center">Skills</h5>
+                            </div>
+                            {{i.skills}}
+                             <span class="badge-sm badge-success badge-pill" style="font-size:12px">Python</span>
+                             <span class="badge-sm badge-success badge-pill" style="font-size:12px">Flask</span>
+                             <span class="badge-sm badge-success badge-pill" style="font-size:12px">UI/UX Designing</span>
+                            <br><br>
+                            {% if i.verifiedskills%}
+                            {{i.verifiedskills}}
+                            <span class="badge-sm badge-success badge-pill" style="font-size:12px">Verified</span>
+
+                            {% endif%}
+
+                            <br> <br>
+                            <br> <br>
+                            <button type="button" class="btn btn-dark" data-toggle="modal"
+                                    data-target="#exampleModal">
+                                Explore skill asssments
+                            </button>
+
+                        </div>
+                        <div class="col-lg-1"></div>
+                        <div class="col-lg-5">
+
+<!--                            Credential <br><img src="{{ i.credentials }}" alt="" width="400"><br>-->
+                            Credential <br><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2F2.bp.blogspot.com%2F-pCfhwRrh6WE%2FU3UB4dyRDHI%2FAAAAAAAABos%2FNDxY-TIjY4s%2Fs1600%2FTexas-University-ID-Card-Template-03.jpg&f=1&nofb=1" alt="" width="380"><br>
+                        </div>
+                    </div>
+
+
+                    <br>
+
+
+                    <br><br>
+
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                         aria-labelledby="exampleModalLabel"
+                         aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Assessments</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+
+                                    <div class="scroller">
+
+                                        <br>
+                                        <button class="btn btn-dark">Android</button>
+                                        <br>
+                                        <hr>
+                                        <button class="btn btn-dark">Angular</button>
+                                        <br>
+                                        <hr>
+                                        <button class="btn btn-dark">Bash</button>
+                                        <br>
+                                        <hr>
+                                        <button class="btn btn-dark">C++</button>
+                                        <br>
+                                        <hr>
+                                        <button class="btn btn-dark">Django</button>
+                                        <br>
+                                        <hr>
+                                        <button class="btn btn-dark">Golang</button>
+                                        <br>
+                                        <hr>
+                                        <button class="btn btn-dark">Hadoop</button>
+                                        <br>
+                                        <hr>
+                                        <button class="btn btn-dark">Java</button>
+                                        <br>
+                                        <hr>
+                                        <button class="btn btn-dark"><a class="" href="/verifiedskills" style="color:white"> Javascript</a>
+                                        </button>
+                                        <br>
+                                        <hr>
+                                        <button class="btn btn-dark">Kotlin</button>
+                                        <br>
+                                        <hr>
+                                        <button class="btn btn-dark">Lisp</button>
+                                    </div>
+
+                                    <br>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Done</button>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+</div>
+
+
+{% endblock%}

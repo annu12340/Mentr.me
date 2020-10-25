@@ -1,0 +1,179 @@
+{% extends "layout.html"%}
+{% block content%}
+
+<body>
+<div class="row"
+     style="width:85%; margin-left:8%;box-shadow: 0 8px 16px rgba(0, 0, 0, .1); background:#fff; padding:2%; border-radius:1%">
+
+    <div class="col-8">
+        <h2 class="text-color">Add Question</h2>
+        <br>
+        <form action="" method="post">
+            <div class="form-group">
+                <input type="text" name="question" class="form-control" placeholder="Enter Question">
+            </div>
+            <div class="form-group">
+                <input type="text" name="shortdescription" class="form-control" placeholder="Short Description">
+            </div>
+            <div class="form-group">
+                    <textarea class="form-control rounded-0" id="exampleFormControlTextarea1"
+                              name="detaileddescription"
+                              rows="5" placeholder="Write a detailed Description"></textarea>
+
+            </div>
+            <!--Check boxs-->
+
+
+            <div id="myDiv">
+
+                <ul class="nav nav-tabs">
+                    <li class="active"><a data-toggle="tab" href="#home"
+                                          style="text-decoration:none !important; color:black">&nbsp;&nbsp;Full stack
+                        web</a></li>
+                    <li><a data-toggle="tab" href="#menu2" style="text-decoration:none !important; color:black">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        Android</a></li>
+                    <li><a data-toggle="tab" href="#menu3" style="text-decoration:none !important; color:black">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Blockchain</a>
+                    </li>
+                    <li><a data-toggle="tab" href="#menu3" style="text-decoration:none !important; color:black">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Deep
+                        learning</a></li>
+                    <li><a data-toggle="tab" href="#menu3" style="text-decoration:none !important; color:black">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Other</a>
+                    </li>
+                </ul>
+
+                <div class="tab-content">
+                    <br>
+                    <div id="home" class="tab-pane fade active" style="font-size:15px;color:#495057">
+                        <div class="form-check form-check-inline">
+                            <input name="tags" class="form-check-input" type="checkbox" id="inlineCheckbox1"
+                                   value="ReactJS">
+                            <label class="form-check-label" for="inlineCheckbox1">MaticJs</label>
+                        </div>
+
+
+
+
+
+                        <div class="form-check form-check-inline">
+                            <input name="tags" class="form-check-input" type="checkbox" id="inlineCheckbox2"
+                                   value="VueJS">
+                            <label class="form-check-label" for="inlineCheckbox2">VueJS</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input name="tags" class="form-check-input" type="checkbox" id="inlineCheckbox3"
+                                   value="Angular">
+                            <label class="form-check-label" for="inlineCheckbox2">Angular</label>
+                        </div>
+
+                        <div class="form-check form-check-inline">
+                            <input name="tags" class="form-check-input" type="checkbox" id="inlineCheckbox5"
+                                   value="Express">
+                            <label class="form-check-label" for="inlineCheckbox2">Express</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input name="tags" class="form-check-input" type="checkbox" id="inlineCheckbox6"
+                                   value="Node">
+                            <label class="form-check-label" for="inlineCheckbox2">Node</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input name="tags" class="form-check-input" type="checkbox" id="inlineCheckbox7"
+                                   value="Flask">
+                            <label class="form-check-label" for="inlineCheckbox2">Flask</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input name="tags" class="form-check-input" type="checkbox" id="inlineCheckbox8"
+                                   value="Django">
+                            <label class="form-check-label" for="inlineCheckbox2">Django</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input name="tags" class="form-check-input" type="checkbox" id="inlineCheckbox9"
+                                   value="Firebase">
+                            <label class="form-check-label" for="inlineCheckbox2">Firebase</label>
+                        </div>
+
+                    </div>
+                    <div id="menu1" class="tab-pane fade">
+                        <h3>Menu 1</h3>
+                        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                            commodo consequat.</p>
+                    </div>
+                    <div id="menu2" class="tab-pane fade">
+                        <h3>Menu 2</h3>
+
+                    </div>
+                    <div id="menu3" class="tab-pane fade" style="font-size:15px;color:#495057">
+
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox10" value="option2"
+                                   name="tags">
+                            <label class="form-check-label" for="inlineCheckbox2">Geth</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox11" value="option2 "
+                                   name="tags">
+                            <label class="form-check-label" for="inlineCheckbox2">Geth</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox12" value="option2"
+                                   name="tags">
+                            <label class="form-check-label" for="inlineCheckbox2">Mist</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox13" value="option2"
+                                   name="tags">
+                            <label class="form-check-label" for="inlineCheckbox2">Solidity</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox14" value="option2"
+                                   name="tags">
+                            <label class="form-check-label" for="inlineCheckbox2">GanacheCLI</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox15" value="option2"
+                                   name="tags">
+                            <label class="form-check-label" for="inlineCheckbox2">Matic</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox16" value="option2"
+                                   name="tags">
+                            <label class="form-check-label" for="inlineCheckbox2">Truffle</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox17" value="option2"
+                                   name="tags">
+                            <label class="form-check-label" for="inlineCheckbox2"> Hyperledger Fabric</label>
+                        </div>
+
+
+                    </div>
+
+            <br>
+                </div>
+  <div class="form-group row">
+                <label for="pay" class="col-sm-4 col-form-label text-center"> I am ready to pay </label>
+                <div class="col-sm-5">
+                    <input type="number" name="pay" id="pay" class="form-control" placeholder="Enter amount" width="70">
+                </div>
+            </div>
+            </div>
+
+
+
+
+            <button type="submit" class="btn btn-dark text-center" style="margin-left:30%"> Submit </button>
+        </form>
+    </div>
+    <div class="col-1"></div>
+    <div class="col-3" style="padding-top:1%;transform:translateX(13%)">
+<!--        <img class="d-block img-fluid" src="/static/question.png"-->
+<!--                                                    style="height:350px;float:right">-->
+              <video controls autoplay="autoplay" loop width="370" style="float:right; ">
+
+                        <source src="https://global-uploads.webflow.com/5bcb46130508ef456a7b2930/5d05f4b95b891603d2c14b6b_drawkit-grape-pack-illustration-2-transcode.mp4">
+
+                    </video>
+    </div>
+
+</div>
+</body>
+
+{% endblock%}

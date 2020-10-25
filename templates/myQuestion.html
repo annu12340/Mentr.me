@@ -1,0 +1,45 @@
+{% extends "layout.html"%}
+{% block content%}
+
+<h1 class="text-color">My Questions</h1>
+
+
+<div class="col-10">
+    <table class="table table-striped table-hover">
+        <thead>
+
+        <th scope="col">Question</th>
+        <th scope="col"> Amount</th>
+        <th scope="col"> status</th>
+
+        </thead>
+        <tbody>
+        <tr>
+            {% for i in myQuestion %}
+
+
+            <td scope="row">
+                <button type="submit" value="{{ i.id }}">
+                    <a href="{{ url_for('ParticularQuestion', questionid=i.id, user=True) }}"> {{ i.question }} </a>
+                </button>
+                <br>
+                {{i.shortdescription }}
+            </td>
+
+            <td> {{i.pay }}</td>
+            <td>{{i.status}}</td>
+            <td>
+                <button type="submit" class="btn btn-light btn-sm" value="{{ i.id }}">
+                    <a href="{{ url_for('DoubtSolved', id=i.id) }}"> Doubt is solved </a>
+                </button>
+
+                <button type="submit" class="btn btn-danger btn-sm" value="{{ i.id }}" style="color:white !important">
+                    <a href="{{ url_for('Delete', id=i.id) }}" style="color:white !important">Delete</a>
+                </button>
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock%}
